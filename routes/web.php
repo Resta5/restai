@@ -48,7 +48,7 @@ Route::get('biodata2', function () {
     return view('biodata', compact('nama', 'jk', 'tl', 'tgllahir', 'alamat', 'agama', 'hobi'));
 });
 
-Route::get('/input/{nama}/{jk}/{tl}/{tgllahir}/{alamat}/{agama}/{hobi}', function ($nama, $jk, $tl, $tgllahir, $alamat, $agama, $hobi) {
+Route::get('/input/{nama}/{jk}/{tl}/{tgllahir}/{alamat}/{agama}/{hobi?}', function ($nama, $jk, $tl, $tgllahir, $alamat, $agama, $hobi = "membaca") {
     echo "Nama Saya:" . $nama . "<br>
         jenis kelamin: " . $jk . "<br>
         Tempat Lahir: " . $tl . "<br>
@@ -80,4 +80,44 @@ Route::get('absen', function () {
         ['nis' => 10, 'nama' => 'Dinda', 'jeniskelamin' => 'Perempuan', 'kelas' => 'XII RPL 3', 'alamat' => 'Bojong malaka indah'],
     ];
     return view('absen', compact('data'));
+});
+
+Route::get('siswa', function () {
+    $siswas = [
+        ['id' => 1,
+            'nama' => 'Resta',
+            'username' => 'Restaiii',
+            'email' => 'muhamadrestha5@gmail.com',
+            'alamat' => 'Bandung',
+            'mapel' => [
+                'mapel1' => 'Bahasa Indonesia',
+                'mapel2' => 'Bahasa Inggris',
+                'mapel3' => 'Bahasa Jepang',
+                'mapel4' => 'Bahasa Korea',
+            ],
+        ],
+    ];
+    return view('siswa', compact('siswas'));
+});
+
+Route::get('/inputnilai/{nama?}/{mtk?}/{pro?}/{indo?}/{ingris?}', function ($nama = null, $mtk = 0, $pro = 0, $indo = 0, $ingris = 0) {
+    echo "Nama Saya:" . $nama . "<br>";
+    echo "Nialai Maatematika : " . $mtk . "<br>";
+    echo "Nialai Produktif : " . $pro . "<br>";
+    echo "Nialai Bahasa Indonesia :  " . $indo . "<br>";
+    echo "Nialai Bahsa Inggris : " . $ingris . "<br>";
+
+    $ratarata = ($mtk + $pro + $indo + $ingris) / 4;
+
+    echo "Rata-rata :" . $ratarata . "<br>";
+    echo "Grade : ";
+    if ($ratarata >= 90) {
+        echo "A";
+    } elseif ($ratarata >= 80) {
+        echo "B";
+    } elseif ($ratarata >= 70) {
+        echo "C";
+    } else {
+        echo "D";
+    }
 });
