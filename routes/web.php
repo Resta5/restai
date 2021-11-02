@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -140,3 +141,35 @@ Route::get('/testmodel', function () {
     $query = App\Models\Post::all();
     return $query;
 });
+
+Route::get('/test', function () {
+    $query = App\Models\Post::all();
+    return view('test', compact('query'));
+});
+
+// Route::get('/barang', function () {
+//     $barang = App\Models\Barang::all();
+//     return view('barang', compact('barang'));
+// });
+
+// Route::get('/pesanan', function () {
+//     $pesanan = App\Models\Pesanan::all();
+//     return view('pesanan', compact('pesanan'));
+// });
+
+// Route::get('/pembelian', function () {
+//     $pembelian = App\Models\Pembelian::all();
+//     return view('pembelian', compact('pembelian'));
+// });
+
+// Route::get('/suplier', function () {
+//     $suplier = App\Models\Suplier::all();
+//     return view('suplier', compact('suplier'));
+// });
+
+// Route::get('/pembeli', function () {
+//     $pembeli = App\Models\Pembeli::all();
+//     return view('pembeli', compact('pembeli'));
+// });
+
+Route::get('/barang', [BarangController::class, 'tampilkan']);
