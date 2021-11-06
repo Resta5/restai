@@ -6,22 +6,26 @@
     <title>Barang</title>
 </head>
 <body>
-    <center>
+<tr>
         <h1>Menampilkan Data barang</h1>
-    </center>
-    <ul>
-        @foreach($barang as $data)
-        Id :{{$data['id_barang']}}<br>
-        Nama :{{$data['nama']}}<br>
-        Varian :{{$data['varian']}}<br>
-        Harga beli :{{$data['harga_beli']}}<br>
-        Harga Jual :{{$data['harga_jual']}}<br>
+        <table border="1">
+        <th>Id</th>
+        <th>Nama</th>
+        <th>Varian</th>
+        <th>Harga beli</th>
+        <th>Harga Jual</th>
+</tr>
 
-        <hr>
-        @endforeach
-    </ul>
-
-
+@foreach($barang as $data)
+<tr>
+        <td>{{$data['id_barang']}}</td>
+        <td>{{$data['nama']}}</td>
+        <td>{{$data['varian']}}</td>
+        <td>{{$data['harga_beli']}}</td>
+        <td>{{$data['harga_jual']}}</td>
+</tr>
+@endforeach
+</table>
 
 </body>
 </html>

@@ -3,27 +3,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device=width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title>Barang</title>
+    <title>Pembeli</title>
 </head>
 <body>
     <center>
         <h1>Menampilkan Data Pembeli</h1>
     </center>
-    <ul>
+
+    <tr>
+        <table border="1">
+            <th>Id Pembeli</th>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Alamat</th>
+            <th>kode pos</th>
+            <th>Kota</th>
+            <th>Tanggal Lahir</th>
+    </tr>
+
         @foreach($pembeli as $data)
-        Id Pembeli :{{$data['id_pembeli']}}<br>
-        Nama :{{$data['nama']}}<br>
-        Jenis Kelamin :{{$data['jk']}}<br>
-        Alamat :{{$data['alamat']}}<br>
-        Kode Pos :{{$data['kode_pos']}}<br>
-        Kota :{{$data['kota']}}<br>
-        Tanggal Lahir :{{$data['tgl_lahir']}}<br>
-        <hr>
+        <tr>
+        <td>{{$data['id_pembeli']}}</td>
+        <td>{{$data['nama']}}</td>
+        <td>{{$data['jk']}}</td>
+        <td>{{$data['alamat']}}</td>
+        <td>{{$data['kode_pos']}}</td>
+        <td>{{$data['kota']}}</td>
+        <td>{{$data['tgl_lahir']}}</td>
+        </tr>
         @endforeach
-    </ul>
-
-
-
+    </table>
 </body>
 </html>
 
